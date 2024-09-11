@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
+      "projectUniqueName": "C:\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
       "projectName": "dotnet-server",
-      "projectPath": "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
+      "projectPath": "C:\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
       "packagesPath": "C:\\Users\\iismailov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\obj\\",
+      "outputPath": "C:\\dotnet-server\\dotnet-server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\iismailov\\AppData\\Roaming\\NuGet\\NuGet.Config",
