@@ -1,4 +1,5 @@
 using CourseAPI.Dtos;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -26,6 +27,53 @@ List<GetCoursesDto> courses = [
             "2"
         )];
 
+
+    string HeavyCpuUtilizationForThreeSeconds()
+    {
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+        double result = 0;
+    while (stopwatch.Elapsed < TimeSpan.FromSeconds(3))
+        {
+            // Perform some CPU-intensive work
+            for (int i = 0; i < 1000000; i++)
+            {
+                result += Math.Sqrt(i);
+            }
+        }
+
+        stopwatch.Stop();
+        Console.WriteLine("Completed heavy CPU task for 3 seconds.");
+    return $"Completed heavy CPU task for 3 seconds. Ended at result {result}.";
+    }
+
+string HeavyCpuUtilizationForThreeSecondsMultiThread()
+{
+    Stopwatch stopwatch = new Stopwatch();
+    stopwatch.Start();
+    double result = 0;
+    // Define the number of threads or tasks you want to run in parallel
+    int numThreads = Environment.ProcessorCount; // Use all available processors
+
+    // Run parallel tasks to utilize multiple threads
+    Parallel.For(0, numThreads, (i) =>
+    {
+        while (stopwatch.Elapsed < TimeSpan.FromSeconds(3))
+        {
+            // Perform CPU-intensive work on each thread
+            for (int j = 0; j < 1000000; j++)
+            {
+                result += Math.Sqrt(j);
+            }
+        }
+    });
+
+    stopwatch.Stop();
+    return $"Completed heavy CPU task for 3 seconds using {numThreads} threads. Got to {result}.";
+}
+
+
+
 app.MapGet("/", () =>
 {
     Console.WriteLine("Entry endpoint called. Means the server is running.");
@@ -36,6 +84,26 @@ app.MapGet("/courses", () =>
 {
     Console.WriteLine("get /courses called...");
     return courses;
+});
+
+app.MapGet("/courses/wait", () =>
+{
+    Console.WriteLine("get /courses/wait called...");
+    System.Threading.Thread.Sleep(5000);
+    return courses;
+});
+app.MapGet("/courses/heavy", () =>
+{
+    Console.WriteLine("get /courses/heavy called...");
+    return HeavyCpuUtilizationForThreeSeconds();
+    
+});
+
+app.MapGet("/courses/heavyMulti", () =>
+{
+    Console.WriteLine("get /courses/heavy called...");
+    return HeavyCpuUtilizationForThreeSecondsMultiThread();
+
 });
 
 app.MapGet("courses/{id}", (int id) =>
