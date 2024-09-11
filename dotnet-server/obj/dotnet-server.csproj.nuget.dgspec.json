@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dotnet-server\\dotnet-server\\dotnet-server.csproj": {}
+    "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj": {}
   },
   "projects": {
-    "C:\\dotnet-server\\dotnet-server\\dotnet-server.csproj": {
+    "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
+        "projectUniqueName": "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
         "projectName": "dotnet-server",
-        "projectPath": "C:\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
+        "projectPath": "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
         "packagesPath": "C:\\Users\\iismailov\\.nuget\\packages\\",
-        "outputPath": "C:\\dotnet-server\\dotnet-server\\obj\\",
+        "outputPath": "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\iismailov\\AppData\\Roaming\\NuGet\\NuGet.Config",

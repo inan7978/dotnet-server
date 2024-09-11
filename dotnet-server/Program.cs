@@ -28,49 +28,24 @@ List<GetCoursesDto> courses = [
         )];
 
 
-    string HeavyCpuUtilizationForThreeSeconds()
+    string HeavyCpuUtilization()
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
         double result = 0;
-    while (stopwatch.Elapsed < TimeSpan.FromSeconds(3))
-        {
+    
+        
             // Perform some CPU-intensive work
-            for (int i = 0; i < 1000000; i++)
+            for (int i = 0; i < 10000000; i++)
             {
                 result += Math.Sqrt(i);
             }
-        }
+        
 
         stopwatch.Stop();
-        Console.WriteLine("Completed heavy CPU task for 3 seconds.");
-    return $"Completed heavy CPU task for 3 seconds. Ended at result {result}.";
+        Console.WriteLine($"Completed heavy CPU task in {stopwatch.Elapsed} seconds.");
+    return $"Completed heavy CPU task in {stopwatch.Elapsed} seconds. Ended at result {result}.";
     }
-
-string HeavyCpuUtilizationForThreeSecondsMultiThread()
-{
-    Stopwatch stopwatch = new Stopwatch();
-    stopwatch.Start();
-    double result = 0;
-    // Define the number of threads or tasks you want to run in parallel
-    int numThreads = Environment.ProcessorCount; // Use all available processors
-
-    // Run parallel tasks to utilize multiple threads
-    Parallel.For(0, numThreads, (i) =>
-    {
-        while (stopwatch.Elapsed < TimeSpan.FromSeconds(3))
-        {
-            // Perform CPU-intensive work on each thread
-            for (int j = 0; j < 1000000; j++)
-            {
-                result += Math.Sqrt(j);
-            }
-        }
-    });
-
-    stopwatch.Stop();
-    return $"Completed heavy CPU task for 3 seconds using {numThreads} threads. Got to {result}.";
-}
 
 
 
@@ -95,15 +70,8 @@ app.MapGet("/courses/wait", () =>
 app.MapGet("/courses/heavy", () =>
 {
     Console.WriteLine("get /courses/heavy called...");
-    return HeavyCpuUtilizationForThreeSeconds();
+    return HeavyCpuUtilization();
     
-});
-
-app.MapGet("/courses/heavyMulti", () =>
-{
-    Console.WriteLine("get /courses/heavy called...");
-    return HeavyCpuUtilizationForThreeSecondsMultiThread();
-
 });
 
 app.MapGet("courses/{id}", (int id) =>
