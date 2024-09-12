@@ -36,7 +36,7 @@ List<GetCoursesDto> courses = [
     
         
             // Perform some CPU-intensive work
-            for (int i = 0; i < 10000000; i++)
+            for (int i = 0; i < 1999999999; i++)
             {
                 result += Math.Sqrt(i);
             }
