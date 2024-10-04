@@ -2,7 +2,26 @@ using CourseAPI.Dtos;
 using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//add service to container
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllHeaders",
+        policy =>
+        {
+            policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+});
+
+builder.Services.AddControllers();
 var app = builder.Build();
+
+//configure the http request pipeline
+
+app.UseCors("AllowAllHeaders");
+app.UseAuthorization();
+app.MapControllers();
+
 
 List<GetCoursesDto> courses = [
         new (
@@ -36,7 +55,7 @@ List<GetCoursesDto> courses = [
     
         
             // Perform some CPU-intensive work
-            for (int i = 0; i < 10000000; i++)
+            for (int i = 0; i < 900000000; i++)
             {
                 result += Math.Sqrt(i);
             }
