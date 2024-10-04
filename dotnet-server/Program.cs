@@ -47,24 +47,24 @@ List<GetCoursesDto> courses = [
         )];
 
 
-    string HeavyCpuUtilization()
-    {
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
-        double result = 0;
-    
-        
-            // Perform some CPU-intensive work
-            for (int i = 0; i < 900000000; i++)
-            {
-                result += Math.Sqrt(i);
-            }
-        
+string HeavyCpuUtilization()
+{
+    Stopwatch stopwatch = new Stopwatch();
+    stopwatch.Start();
+    double result = 0;
 
-        stopwatch.Stop();
-        Console.WriteLine($"Completed heavy CPU task in {stopwatch.Elapsed} seconds.");
-    return $"Completed heavy CPU task in {stopwatch.Elapsed} seconds. Ended at result {result}.";
+
+    // Perform some CPU-intensive work
+    for (int i = 0; i < 900000000; i++)
+    {
+        result += Math.Sqrt(i);
     }
+
+
+    stopwatch.Stop();
+    Console.WriteLine($"Completed heavy CPU task in {stopwatch.Elapsed} seconds.");
+    return $"Completed heavy CPU task in {stopwatch.Elapsed} seconds. Ended at result {result}.";
+}
 
 
 
@@ -90,7 +90,7 @@ app.MapGet("/courses/heavy", () =>
 {
     Console.WriteLine("get /courses/heavy called...");
     return HeavyCpuUtilization();
-    
+
 });
 
 app.MapGet("courses/{id}", (int id) =>

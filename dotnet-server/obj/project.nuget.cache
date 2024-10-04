@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "ZNVOyijvGew=",
   "success": true,
   "projectFilePath": "C:\\Users\\iismailov\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
@@ -21,5 +22,11 @@
     "C:\\Users\\iismailov\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
     "C:\\Users\\iismailov\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "dgGpbVqdLMQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\inan7\\projects\\dotnet-server\\dotnet-server\\dotnet-server.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> d2343d7ab079093aa9705070916d22b2a9707402
   "logs": []
 }
